@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KramerKonstruct | Small, Energy-Efficient Homes in Okemos, Michigan</title>
+  <meta name="description" content="KramerKonstruct designs and builds small, energy-efficient homes in Okemos, Michigan, using green design principles and durable, healthy building materials." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f3ed;
+      --surface: #fbfaf6;
+      --surface-2: #ffffff;
+      --text: #18201b;
+      --muted: #58655e;
+      --line: rgba(24, 32, 27, 0.1);
+      --brand: #2f6a4f;
+      --brand-dark: #234f3b;
+      --accent: #adc48f;
+      --warm: #b98c59;
+      --shadow: 0 20px 60px rgba(16, 24, 19, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(173,196,143,0.25), transparent 26%),
+        linear-gradient(180deg, #f6f5ef 0%, #f1efe8 100%);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin: 0 auto; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.65rem 1rem; border-radius: 999px;
+      background: rgba(47, 106, 79, 0.08); color: var(--brand-dark);
+      font-size: 0.92rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .section { padding: 5.5rem 0; }
+    .section-head {
+      display: flex; justify-content: space-between; gap: 1.5rem; align-items: end;
+      margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .section-head h2 {
+      margin: 0.75rem 0 0; font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05; letter-spacing: -0.04em;
+    }
+    .section-head p { max-width: 640px; margin: 0; color: var(--muted); }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(246, 245, 239, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(24, 32, 27, 0.06);
+    }
+    .nav {
+      min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 0.9rem; font-weight: 800; letter-spacing: -0.03em;
+    }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), #4e8a68);
+      display: grid; place-items: center; color: white; font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 10px 20px rgba(47,106,79,0.2);
+    }
+    .brand small { display: block; color: var(--muted); font-weight: 600; letter-spacing: 0.01em; }
+    nav ul {
+      list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 1.4rem;
+    }
+    nav a { color: var(--muted); font-weight: 600; }
+    nav a:hover { color: var(--text); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--brand); color: white; padding: 0.9rem 1.2rem;
+      border-radius: 999px; font-weight: 700; box-shadow: var(--shadow);
+    }
+    .menu-btn {
+      display: none; border: 0; background: white; border-radius: 14px; padding: 0.8rem 0.95rem;
+      box-shadow: var(--shadow); font: inherit; font-weight: 700;
+    }
+    .hero { padding: 4.5rem 0 3.5rem; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 2rem; align-items: stretch;
+    }
+    .hero-copy,
+    .hero-visual {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(24, 32, 27, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+    .hero-copy { padding: clamp(1.8rem, 4vw, 3.25rem); }
+    .hero-copy h1 {
+      margin: 1rem 0 1rem; font-size: clamp(3rem, 6vw, 5.4rem);
+      line-height: 0.95; letter-spacing: -0.065em;
+    }
+    .hero-copy p {
+      margin: 0; max-width: 58ch; color: var(--muted); font-size: 1.08rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+      min-height: 52px; padding: 0 1.2rem; border-radius: 999px; font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--brand); color: white; }
+    .btn-secondary { background: white; color: var(--text); border-color: var(--line); }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;
+    }
+    .stat {
+      padding: 1rem; border-radius: var(--radius-sm); background: rgba(47,106,79,0.05);
+      border: 1px solid rgba(47,106,79,0.08);
+    }
+    .stat strong { display: block; font-size: 1.5rem; letter-spacing: -0.04em; }
+    .stat span { color: var(--muted); font-size: 0.95rem; }
+    .hero-visual { padding: 1rem; display: grid; gap: 1rem; }
+    .render-card {
+      min-height: 470px; border-radius: 22px; overflow: hidden; position: relative;
+      background:
+        linear-gradient(180deg, rgba(13, 33, 20, 0.05), rgba(13, 33, 20, 0.18)),
+        url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
+    .render-overlay {
+      position: absolute; inset: auto 1rem 1rem 1rem; padding: 1rem 1.1rem;
+      background: rgba(255,255,255,0.88); border-radius: 18px; backdrop-filter: blur(10px);
+      border: 1px solid rgba(24,32,27,0.08);
+    }
+    .render-overlay strong { display: block; font-size: 1.05rem; }
+    .render-overlay span { color: var(--muted); font-size: 0.95rem; }
+    .material-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;
+    }
+    .chip {
+      padding: 0.9rem 1rem; border-radius: 18px; background: white; border: 1px solid var(--line);
+      font-weight: 600; color: var(--muted);
+    }
+    .trust-grid,
+    .services-grid,
+    .gallery-grid,
+    .process-grid,
+    .contact-grid,
+    .footer-grid { display: grid; gap: 1.25rem; }
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(12, 1fr); }
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
+    .contact-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
+    .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
+    .card {
+      background: rgba(255,255,255,0.8); border: 1px solid rgba(24, 32, 27, 0.08);
+      border-radius: var(--radius-md); box-shadow: var(--shadow);
+    }
+    .trust-card, .service-card, .process-card, .contact-card, .gallery-card, .about-card {
+      padding: 1.4rem;
+    }
+    .trust-card strong, .service-card h3, .process-card h3, .contact-card h3, .about-card h3 {
+      display: block; margin: 0 0 0.65rem; letter-spacing: -0.03em;
+    }
+    .trust-card p, .service-card p, .process-card p, .contact-card p, .about-card p { margin: 0; color: var(--muted); }
+    .service-icon,
+    .process-number {
+      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(47,106,79,0.08); color: var(--brand-dark); font-weight: 800; margin-bottom: 1rem;
+    }
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .about-photo {
+      min-height: 400px; border-radius: var(--radius-lg);
+      background: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80') center/cover;
+      box-shadow: var(--shadow); border: 1px solid rgba(24,32,27,0.08);
+    }
+    .about-card { padding: 2rem; }
+    .gallery-card { padding: 0; overflow: hidden; position: relative; min-height: 260px; }
+    .gallery-card.large { grid-column: span 7; min-height: 410px; }
+    .gallery-card.medium { grid-column: span 5; }
+    .gallery-card.small { grid-column: span 4; }
+    .gallery-card.tall { min-height: 340px; }
+    .gallery-image { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .gallery-caption {
+      position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
+      background: rgba(255,255,255,0.9); border-radius: 18px; padding: 0.9rem 1rem;
+      border: 1px solid rgba(24,32,27,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .gallery-caption strong { display: block; }
+    .gallery-caption span { color: var(--muted); font-size: 0.94rem; }
+    form { display: grid; gap: 1rem; }
+    .field { display: grid; gap: 0.45rem; }
+    label { font-weight: 700; font-size: 0.95rem; }
+    input, textarea, select {
+      width: 100%; border: 1px solid rgba(24,32,27,0.12); border-radius: 16px;
+      padding: 0.95rem 1rem; font: inherit; background: rgba(255,255,255,0.9); color: var(--text);
+    }
+    textarea { min-height: 150px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-note { color: var(--muted); font-size: 0.94rem; margin: 0; }
+    footer {
+      padding: 2.5rem 0 3rem; border-top: 1px solid rgba(24, 32, 27, 0.08);
+      background: rgba(255,255,255,0.55);
+    }
+    .footer-brand p, .footer-links a, .footer-contact a, .footer-contact p {
+      color: var(--muted);
+    }
+    .footer-links, .footer-contact { display: grid; gap: 0.55rem; }
+    .copyright { margin-top: 1.8rem; color: var(--muted); font-size: 0.94rem; }
+    @media (max-width: 980px) {
+      nav ul {
+        position: absolute; top: calc(100% + 0.75rem); left: 1rem; right: 1rem;
+        background: rgba(255,255,255,0.96); border-radius: 20px; padding: 1rem;
+        border: 1px solid rgba(24,32,27,0.08); box-shadow: var(--shadow);
+        flex-direction: column; align-items: flex-start; display: none;
+      }
+      nav ul.open { display: flex; }
+      .menu-btn { display: inline-flex; }
+      .nav-cta { display: none; }
+      .hero-grid, .about-layout, .contact-grid, .footer-grid,
+      .trust-grid, .services-grid, .process-grid { grid-template-columns: 1fr; }
+      .gallery-card.large, .gallery-card.medium, .gallery-card.small { grid-column: span 12; }
+    }
+    @media (max-width: 720px) {
+      .section { padding: 4.25rem 0; }
+      .hero { padding-top: 2rem; }
+      .hero-stats, .material-strip, .form-row { grid-template-columns: 1fr; }
+      .hero-copy h1 { font-size: clamp(2.5rem, 13vw, 3.8rem); }
+      .render-card { min-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="KramerKonstruct home">
+        <div class="brand-mark">KK</div>
+        <div>
+          KramerKonstruct
+          <small>Okemos, Michigan</small>
+        </div>
+      </a>
+      <nav>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+        <ul id="menuList">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#contact">Start Your Home</a>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill">Small-footprint homes · Green design · High-performance building</span>
+          <h1>Thoughtful homes built to last, not oversized to impress.</h1>
+          <p>KramerKonstruct is a sole-proprietor residential builder in Okemos, Michigan, focused on small, energy-efficient homes. Every project is shaped around smart space planning, practical durability, healthy materials, and long-term operating efficiency.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a Consultation</a>
+            <a class="btn btn-secondary" href="#projects">View Project Gallery</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>Small</strong><span>Homes designed for efficient living and lower lifetime costs.</span></div>
+            <div class="stat"><strong>Efficient</strong><span>Envelope-first thinking, better comfort, and reduced energy loss.</span></div>
+            <div class="stat"><strong>Intentional</strong><span>Green materials and practical details chosen for real-world durability.</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="render-card">
+            <div class="render-overlay">
+              <strong>Modern, compact, performance-minded</strong>
+              <span>Designed for daylight, comfort, clean lines, and lower energy demand.</span>
+            </div>
+          </div>
+          <div class="material-strip">
+            <div class="chip">Healthy materials</div>
+            <div class="chip">Durable detailing</div>
+            <div class="chip">Efficient systems</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="card trust-card"><strong>Sole-proprietor attention</strong><p>Direct communication, clearer decisions, and a more personal building experience from start to finish.</p></div>
+          <div class="card trust-card"><strong>Energy-aware design</strong><p>Smarter layouts, better insulation strategies, and decisions that support long-term efficiency.</p></div>
+          <div class="card trust-card"><strong>Green material focus</strong><p>Preference for responsible, durable materials that support healthier indoor living.</p></div>
+          <div class="card trust-card"><strong>Local to Mid-Michigan</strong><p>Based in Okemos and grounded in practical solutions for Michigan climate and seasons.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Services</span>
+            <h2>Design-build support for compact, high-quality homes.</h2>
+          </div>
+          <p>Whether you are starting from a rough idea or refining a buildable concept, KramerKonstruct focuses on homes that feel calm, efficient, and purpose-built rather than excessive.</p>
+        </div>
+        <div class="services-grid">
+          <article class="card service-card">
+            <div class="service-icon">01</div>
+            <h3>Custom small homes</h3>
+            <p>New homes planned around simple living, efficient circulation, storage that makes sense, and spaces that earn their square footage.</p>
+          </article>
+          <article class="card service-card">
+            <div class="service-icon">02</div>
+            <h3>Energy-efficient building</h3>
+            <p>Envelope quality, orientation, mechanical choices, and moisture-aware detailing all work together to improve comfort and lower energy use.</p>
+          </article>
+          <article class="card service-card">
+            <div class="service-icon">03</div>
+            <h3>Green material selection</h3>
+            <p>Guidance on durable finishes, lower-impact products, and material decisions that balance sustainability, health, and budget.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Project gallery</span>
+            <h2>A visual direction for the kinds of homes KramerKonstruct is built around.</h2>
+          </div>
+          <p>This prototype gallery uses curated placeholder imagery and concept-style captions. It is ready to swap with real project photography, renderings, or build-progress images.</p>
+        </div>
+        <div class="gallery-grid">
+          <article class="card gallery-card large">
+            <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="gallery-caption"><strong>Compact Modern Retreat</strong><span>Clean geometry, efficient footprint, and strong indoor-outdoor light.</span></div>
+          </article>
+          <article class="card gallery-card medium tall">
+            <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="gallery-caption"><strong>Warm Natural Exterior</strong><span>Material-led design with restrained detailing and lasting curb appeal.</span></div>
+          </article>
+          <article class="card gallery-card small">
+            <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="gallery-caption"><strong>Daylight-Focused Interior</strong><span>Smarter openings and simple finishes that keep spaces bright and usable.</span></div>
+          </article>
+          <article class="card gallery-card small">
+            <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="gallery-caption"><strong>Efficient Living Core</strong><span>Open but controlled layouts centered on comfort and practicality.</span></div>
+          </article>
+          <article class="card gallery-card small">
+            <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1519643381401-22c77e60520e?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="gallery-caption"><strong>Simple, Durable Materials</strong><span>Natural palettes, lower-maintenance choices, and timeless restraint.</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="pill">Process</span>
+            <h2>A straightforward path from first conversation to finished home.</h2>
+          </div>
+          <p>The process is designed to stay collaborative and practical, with decisions anchored in budget, performance goals, and buildable details.</p>
+        </div>
+        <div class="process-grid">
+          <article class="card process-card">
+            <div class="process-number">1</div>
+            <h3>Initial consultation</h3>
+            <p>Discuss site context, goals, budget range, square footage targets, and how you want the home to live day to day.</p>
+          </article>
+          <article class="card process-card">
+            <div class="process-number">2</div>
+            <h3>Concept and scope</h3>
+            <p>Translate priorities into a right-sized design direction, material approach, and performance strategy.</p>
+          </article>
+          <article class="card process-card">
+            <div class="process-number">3</div>
+            <h3>Pre-construction planning</h3>
+            <p>Refine systems, coordinate details, and reduce avoidable surprises before the build begins.</p>
+          </article>
+          <article class="card process-card">
+            <div class="process-number">4</div>
+            <h3>Build and finish</h3>
+            <p>Execute the work with an emphasis on quality, transparency, and homes that perform well over time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="container about-layout">
+        <div class="about-photo" aria-hidden="true"></div>
+        <article class="card about-card">
+          <span class="pill">About KramerKonstruct</span>
+          <h2>Independent building with a clear point of view.</h2>
+          <h3>Built around efficiency, restraint, and long-term value.</h3>
+          <p>KramerKonstruct is a sole proprietorship serving clients in and around Okemos, Michigan. The work centers on smaller homes that prioritize comfort, lower energy demand, healthier materials, and thoughtful detailing over unnecessary square footage.</p>
+          <p>That means focusing on what improves daily life: useful layouts, durable assemblies, natural light, practical storage, and materials that age well. The result is a home that feels intentional from the first sketch through the final finish.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <article class="card contact-card">
+          <span class="pill">Contact</span>
+          <h2 style="margin:0.9rem 0 0.75rem; font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-0.04em; line-height:1.05;">Start the conversation.</h2>
+          <p>Share your goals, ideal size, site status, and timeline. The form is wired as a clean placeholder for Formspree. Replace the form action with your real Formspree endpoint when ready.</p>
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="location">Project location</label>
+                <input id="location" name="location" type="text" placeholder="City or township">
+              </div>
+              <div class="field">
+                <label for="projectType">Project type</label>
+                <select id="projectType" name="project_type">
+                  <option>New small home</option>
+                  <option>Green design consultation</option>
+                  <option>Material selection guidance</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Tell me about your project</label>
+              <textarea id="message" name="message" placeholder="Desired square footage, sustainability goals, lot status, budget range, and timeline."></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            <p class="form-note">Prefer email instead? Reach out directly at <a href="mailto:kramerkonstruct@gmail.com">kramerkonstruct@gmail.com</a>.</p>
+          </form>
+        </article>
+        <aside class="card contact-card">
+          <h3>Project fit</h3>
+          <p>KramerKonstruct is especially well suited for homeowners who value smaller footprints, lower operating costs, durable detailing, and a more intentional approach to residential building.</p>
+          <div style="height:1rem"></div>
+          <h3>Service area</h3>
+          <p>Based in Okemos, Michigan, with a focus on residential work in the greater Mid-Michigan region.</p>
+          <div style="height:1rem"></div>
+          <h3>Email</h3>
+          <p><a href="mailto:kramerkonstruct@gmail.com">kramerkonstruct@gmail.com</a></p>
+          <div style="height:1rem"></div>
+          <h3>What to include</h3>
+          <p>A rough timeline, ideal square footage, whether you already have land, and what “energy efficient” means for your priorities.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom:0.75rem;">
+            <div class="brand-mark">KK</div>
+            <div>
+              KramerKonstruct
+              <small>Small, energy-efficient homes</small>
+            </div>
+          </div>
+          <p>Sole-proprietor residential builder in Okemos, Michigan, focused on green design, smaller footprints, and practical long-term performance.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Explore</strong>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-contact">
+          <strong>Contact</strong>
+          <a href="mailto:kramerkonstruct@gmail.com">kramerkonstruct@gmail.com</a>
+          <p>Okemos, Michigan</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 KramerKonstruct. Prototype website for GitHub Pages.</p>
+    </div>
+  </footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menuList = document.getElementById('menuList');
+    menuBtn?.addEventListener('click', () => {
+      menuList.classList.toggle('open');
+    });
+    menuList?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menuList.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
